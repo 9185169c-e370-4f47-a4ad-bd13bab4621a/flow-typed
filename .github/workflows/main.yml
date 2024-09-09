@@ -27,3 +27,15 @@ jobs:
           git config --global user.email "noemail@example.com"
       - name: Run Tests
         run: ./build.sh
+      - name: Upload results
+        # Run this step even if the test step ahead fails
+        if: "!cancelled()"
+        uses: trunk-io/analytics-uploader@main
+        with:
+          # Path to your test results.
+          junit-paths: cli/junit.xml
+          # Provide your Trunk organization slug.
+          org-slug: 9185169c-e370-4f47-a4ad-bd13bab4621a
+          # Provide your Trunk API token as a GitHub secret.
+          token: ${{ secrets.TRUNK_API_TOKEN }}
+        continue-on-error: true
