@@ -39,6 +39,7 @@
     "fs-extra": "^8.1.0",
     "glob": "^7.1.6",
     "got": "^11.8.5",
+    "jest-junit": "^16.0.0",
     "js-yaml": "^4.1.0",
     "md5": "^2.2.1",
     "mkdirp": "^1.0.3",
@@ -79,6 +80,8 @@
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/.*/__[^/]*-fixtures__/.*"
-    ]
+    ],
+    "reporters": [ "default", "jest-junit" ],
+    "addFileAttribute": "true"
   }
 }
